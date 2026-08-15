@@ -255,9 +255,10 @@ body {
     background: #f1f5f9;
     border: 1px solid var(--color-border-card);
     border-radius: var(--radius-xs);
-    padding: var(--space-4) var(--space-5);
-    flex: 1;
-    min-width: 280px;
+    padding: 0 var(--space-4);
+    height: 42px;
+    flex: 1 1 280px;
+    min-width: 240px;
 }
 
 .search-box input {
@@ -268,6 +269,7 @@ body {
     font-size: var(--font-size-md);
     font-family: var(--font-family-primary);
     width: 100%;
+    height: 100%;
 }
 
 .search-box input::placeholder {
@@ -277,19 +279,26 @@ body {
 .filter-group {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
+    gap: var(--space-3);
+    align-items: center;
+    flex: 2 1 auto;
 }
 
 select {
     background: #f1f5f9;
     border: 1px solid var(--color-border-card);
     color: var(--color-text-primary);
-    padding: var(--space-4) var(--space-5);
+    padding: 0 var(--space-4);
+    height: 42px;
     border-radius: var(--radius-xs);
     font-size: var(--font-size-sm);
     font-family: var(--font-family-primary);
     outline: none;
     cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
 }
 
 /* Table Component */
@@ -318,12 +327,14 @@ select {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-bottom: 1px solid var(--color-border-card);
+    white-space: nowrap;
 }
 
 .model-table td {
     padding: var(--space-4) var(--space-5);
     border-bottom: 1px solid var(--color-border-card);
     vertical-align: middle;
+    white-space: nowrap;
 }
 
 .model-table tr:hover td {
@@ -334,6 +345,7 @@ select {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
+    white-space: normal;
 }
 
 .model-title {
@@ -342,6 +354,7 @@ select {
     color: var(--color-accent-cyan);
     text-decoration: none;
     transition: color var(--motion-duration-instant) ease;
+    word-break: break-word;
 }
 
 .model-title:hover {
@@ -355,7 +368,9 @@ select {
 }
 
 .chip {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: var(--space-2) var(--space-4);
     border-radius: 6px;
     font-size: var(--font-size-xs);
@@ -363,6 +378,9 @@ select {
     background: #f1f5f9;
     color: var(--color-text-secondary);
     border: 1px solid var(--color-border-card);
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    hyphens: manual !important;
 }
 
 .chip-cyan { background: rgba(2, 132, 199, 0.1); color: var(--color-accent-cyan); border: 1px solid rgba(2, 132, 199, 0.3); }
