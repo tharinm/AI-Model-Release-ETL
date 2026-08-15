@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Tracker & Popularity Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <!-- Header / Hero Banner -->
+        <header class="header-card">
+            <div class="header-content">
+                <div class="logo-area">
+                    <span class="badge-pulse">● LIVE ETL</span>
+                    <h1>AI Model Tracker & Popularity Predictor</h1>
+                    <p class="subtitle">Automated pipeline collecting newly released AI/ML models from Hugging Face with ML popularity forecasting.</p>
+                </div>
+                <div class="header-actions">
+                    <button id="refreshBtn" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                        Refresh Data
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Metrics Grid -->
+        <section class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon icon-cyan">🤖</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Total Models Tracked</span>
+                    <h3 id="statTotalModels" class="kpi-val">--</h3>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon icon-purple">🔥</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Predicted High-Growth</span>
+                    <h3 id="statPopularCount" class="kpi-val">--</h3>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon icon-green">⬇️</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Total Downloads</span>
+                    <h3 id="statTotalDownloads" class="kpi-val">--</h3>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon icon-amber">⭐</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Total Community Likes</span>
+                    <h3 id="statTotalLikes" class="kpi-val">--</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter & Control Panel -->
+        <section class="filter-panel">
+            <div class="search-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="searchInput" placeholder="Search by model ID, author, or tag...">
+            </div>
+            
+            <div class="filter-group">
+                <select id="filterTag">
+                    <option value="ALL">All Categories</option>
+                </select>
+                
+                <select id="filterLibrary">
+                    <option value="ALL">All Libraries</option>
+                </select>
+
+                <select id="filterLicense">
+                    <option value="ALL">All Licenses</option>
+                </select>
+
+                <select id="sortSelect">
+                    <option value="pred_desc">Popularity Probability (High → Low)</option>
+                    <option value="dl_desc">Downloads (High → Low)</option>
+                    <option value="likes_desc">Likes (High → Low)</option>
+                    <option value="newest">Release Date (Newest)</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Models Table Display -->
+        <section class="table-container">
+            <table class="model-table">
+                <thead>
+                    <tr>
+                        <th>Model ID & Author</th>
+                        <th>Category</th>
+                        <th>Library</th>
+                        <th>License</th>
+                        <th>Downloads</th>
+                        <th>Likes</th>
+                        <th>Popularity Forecast</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="modelTableBody">
+                    <tr>
+                        <td colspan="8" class="loading-cell">Loading AI model dataset...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer class="footer-card">
+            <p>Dataset automatically refreshed by <strong>GitHub Actions</strong> daily. Data powered by Hugging Face Hub API.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
