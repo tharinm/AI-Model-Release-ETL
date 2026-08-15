@@ -146,14 +146,4 @@ The popularity predictor uses a soft-voting ensemble combining **`RandomForestCl
 * **Author Reputation**: Historical track record of major labs (`meta-llama`, `google`, `deepseek-ai`, `mistralai`, `qwen`).
 * **Academic & Dataset Backing**: Linkage to `arXiv` preprints and training dataset availability.
 
----
 
-## 🔄 Daily Automation via GitHub Actions
-
-The workflow `.github/workflows/etl_daily.yml` executes automatically every day at **00:00 UTC**:
-1. Checks out repository and installs Python dependencies.
-2. Runs unit test suite (`python -m unittest discover tests`).
-3. Fetches newly released models from Hugging Face API.
-4. Deduplicates records and merges into `models_dataset.csv` and `models_dataset.parquet`.
-5. Trains the ML predictor ensemble and generates popularity forecast scores.
-6. Automatically commits updated dataset files and predictions back to GitHub.
