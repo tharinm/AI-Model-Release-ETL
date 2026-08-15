@@ -2,8 +2,8 @@ name: Automated AI Model Release ETL & Popularity Prediction Pipeline
 
 on:
   schedule:
-    # Run daily at 00:00 UTC
-    - cron: '0 0 * * *'
+    # Run twice daily at 00:00 UTC and 12:00 UTC
+    - cron: '0 0,12 * * *'
   workflow_dispatch:
     # Allows manual execution from GitHub Actions tab
 
