@@ -1,7 +1,11 @@
-/* Light Mode Design System Tokens for AI Model Tracker & Popularity Predictor */
+/* Light Mode Design System Tokens with Saira & Roboto Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Saira:wght@600;700;800&display=swap');
+
 :root {
     /* Typography Tokens */
-    --font-family-primary: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-family-primary: 'Roboto', system-ui, -apple-system, sans-serif;
+    --font-family-heading: 'Saira', system-ui, -apple-system, sans-serif;
+
     --font-size-xs: 12.48px;
     --font-size-sm: 13.12px;
     --font-size-md: 14.4px;
@@ -17,23 +21,23 @@
     --font-weight-extrabold: 800;
 
     /* Light Mode Color Tokens */
-    --color-text-primary: #0f172a;    /* Slate 900 - high contrast header/body text */
-    --color-text-secondary: #334155;  /* Slate 700 - subtitles & labels */
-    --color-text-tertiary: #64748b;   /* Slate 500 - helper metadata */
-    --color-text-inverse: #94a3b8;    /* Slate 400 - disabled/muted text */
+    --color-text-primary: #0f172a;    /* Slate 900 */
+    --color-text-secondary: #334155;  /* Slate 700 */
+    --color-text-tertiary: #64748b;   /* Slate 500 */
+    --color-text-inverse: #94a3b8;    /* Slate 400 */
 
-    --color-surface-base: #ffffff;     /* Pure white card base */
-    --color-surface-muted: #f8fafc;    /* Slate 50 page canvas background */
-    --color-surface-card: #ffffff;     /* Crisp white card surface */
-    --color-surface-card-hover: #f1f5f9;/* Soft hover surface */
-    --color-border-card: #e2e8f0;      /* Slate 200 crisp border */
+    --color-surface-base: #ffffff;
+    --color-surface-muted: #f8fafc;
+    --color-surface-card: #ffffff;
+    --color-surface-card-hover: #f1f5f9;
+    --color-border-card: #e2e8f0;
 
     /* Light Mode Brand Accents */
-    --color-accent-cyan: #0284c7;     /* Sky 600 */
-    --color-accent-purple: #7c3aed;   /* Violet 600 */
-    --color-accent-green: #059669;    /* Emerald 600 */
-    --color-accent-amber: #d97706;    /* Amber 600 */
-    --color-accent-pink: #db2777;     /* Pink 600 */
+    --color-accent-cyan: #0284c7;
+    --color-accent-purple: #7c3aed;
+    --color-accent-green: #059669;
+    --color-accent-amber: #d97706;
+    --color-accent-pink: #db2777;
 
     /* Spacing Scale */
     --space-1: 1.6px;
@@ -67,7 +71,7 @@ body {
     color: var(--color-text-primary);
     font-family: var(--font-family-primary);
     font-size: var(--font-size-md);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-medium);
     line-height: 1.5;
     min-height: 100vh;
     padding: var(--space-5) var(--space-4);
@@ -107,6 +111,7 @@ body {
 
 .badge-pulse {
     display: inline-block;
+    font-family: var(--font-family-heading);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     color: var(--color-accent-green);
@@ -119,10 +124,11 @@ body {
 }
 
 .logo-area h1 {
+    font-family: var(--font-family-heading);
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-extrabold);
     color: var(--color-text-primary);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .subtitle {
@@ -139,7 +145,7 @@ body {
     justify-content: center;
     gap: var(--space-3);
     padding: var(--space-4) var(--space-5);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-heading);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
     border-radius: var(--radius-xs);
@@ -212,6 +218,7 @@ body {
 .icon-amber { background: rgba(217, 119, 6, 0.1); border: 1px solid rgba(217, 119, 6, 0.25); }
 
 .kpi-label {
+    font-family: var(--font-family-heading);
     font-size: var(--font-size-xs);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -220,6 +227,7 @@ body {
 }
 
 .kpi-val {
+    font-family: var(--font-family-heading);
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-extrabold);
     margin-top: var(--space-1);
@@ -303,6 +311,7 @@ select {
 .model-table th {
     background: #f8fafc;
     padding: var(--space-4) var(--space-5);
+    font-family: var(--font-family-heading);
     font-weight: var(--font-weight-bold);
     color: var(--color-text-secondary);
     font-size: var(--font-size-xs);
@@ -328,6 +337,7 @@ select {
 }
 
 .model-title {
+    font-family: var(--font-family-primary);
     font-weight: var(--font-weight-bold);
     color: var(--color-accent-cyan);
     text-decoration: none;
@@ -385,6 +395,7 @@ select {
 .fill-low { background: var(--color-text-inverse); }
 
 .prob-text {
+    font-family: var(--font-family-heading);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     min-width: 42px;
