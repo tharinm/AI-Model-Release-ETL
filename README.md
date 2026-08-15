@@ -1,6 +1,6 @@
 # AI Model Release ETL & Popularity Prediction Pipeline
 
-[![Daily ETL](https://github.com/tharinm/portfolio/actions/workflows/etl_daily.yml/badge.svg)](https://github.com/tharinm/portfolio/actions/workflows/etl_daily.yml)
+[![Daily ETL](https://github.com/tharinm/AI-Model-Release-ETL/actions/workflows/etl_daily.yml/badge.svg)](https://github.com/tharinm/AI-Model-Release-ETL/actions/workflows/etl_daily.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Data Format](https://img.shields.io/badge/Dataset-CSV%20%7C%20Parquet-green.svg)](#dataset-schema)
@@ -95,8 +95,8 @@ The pipeline includes an ML prediction system built on historical metrics:
 ### 1. Requirements & Setup
 ```bash
 # Clone repository
-git clone https://github.com/tharinm/portfolio.git
-cd portfolio
+git clone https://github.com/tharinm/AI-Model-Release-ETL.git
+cd AI-Model-Release-ETL
 
 # Install dependencies
 pip install -r requirements.txt
