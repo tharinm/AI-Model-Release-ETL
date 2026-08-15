@@ -8,3 +8,4 @@ ENV/
 env/
 .DS_Store
 *.log
+DESIGN.md
