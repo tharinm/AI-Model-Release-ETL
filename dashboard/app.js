@@ -34,6 +34,7 @@ async function loadModelData() {
 
     populateFilterDropdowns();
     updateKPICards();
+    renderTopModels(allModels);
     filterAndRender();
 }
 
@@ -48,6 +49,40 @@ function updateKPICards() {
 
     const totalLikes = allModels.reduce((acc, m) => acc + (m.likes || 0), 0);
     document.getElementById("statTotalLikes").textContent = formatCompactNumber(totalLikes);
+}
+
+function renderTopModels(models) {
+    const topGrid = document.getElementById("topModelsGrid");
+    
+    // Sort by downloads descending
+    const sorted = [...models].sort((a, b) => (b.downloads || 0) - (a.downloads || 0));
+    const top5 = sorted.slice(0, 5);
+
+    if (top5.length === 0) {
+        topGrid.innerHTML = `<div style="color: var(--color-text-tertiary); font-style: italic;">No top models data available.</div>`;
+        return;
+    }
+
+    topGrid.innerHTML = top5.map((m, index) => {
+        const hfUrl = `https://huggingface.co/${m.model_id}`;
+        return `
+            <a href="${hfUrl}" target="_blank" class="top-model-card">
+                <span class="tmc-rank">#${index + 1}</span>
+                <div class="tmc-content">
+                    <div class="tmc-title">${escapeHtml(m.model_name || m.model_id.split('/').pop())}</div>
+                    <div class="tmc-author">by ${escapeHtml(m.author || 'community')}</div>
+                </div>
+                <div class="tmc-stats">
+                    <div class="tmc-stat" title="Downloads">
+                        ⬇️ ${(m.downloads || 0).toLocaleString()}
+                    </div>
+                    <div class="tmc-stat" title="Likes">
+                        ⭐ ${(m.likes || 0).toLocaleString()}
+                    </div>
+                </div>
+            </a>
+        `;
+    }).join("");
 }
 
 function populateFilterDropdowns() {
