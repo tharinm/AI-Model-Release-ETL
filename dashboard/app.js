@@ -53,9 +53,22 @@ function updateKPICards() {
 
 function renderTopModels(models) {
     const topGrid = document.getElementById("topModelsGrid");
+    const title = document.getElementById("topModelsTitle");
+    const subtitle = document.getElementById("topModelsSubtitle");
     
-    // Sort by downloads descending
-    const sorted = [...models].sort((a, b) => (b.downloads || 0) - (a.downloads || 0));
+    const maxDownloads = models.reduce((max, m) => Math.max(max, m.downloads || 0), 0);
+    
+    let sorted;
+    if (maxDownloads > 0) {
+        sorted = [...models].sort((a, b) => (b.downloads || 0) - (a.downloads || 0));
+        if (title) title.textContent = "🏆 Most Used Models";
+        if (subtitle) subtitle.textContent = "Highest Downloads";
+    } else {
+        sorted = [...models].sort((a, b) => (b.popularity_probability || 0) - (a.popularity_probability || 0));
+        if (title) title.textContent = "🔥 Trending Models";
+        if (subtitle) subtitle.textContent = "Highest Popularity Prediction";
+    }
+
     const top5 = sorted.slice(0, 5);
 
     if (top5.length === 0) {
@@ -78,6 +91,9 @@ function renderTopModels(models) {
                     </div>
                     <div class="tmc-stat" title="Likes">
                         ⭐ ${(m.likes || 0).toLocaleString()}
+                    </div>
+                    <div class="tmc-stat" title="Popularity Prediction" style="margin-left: auto;">
+                        🔥 ${Math.round((m.popularity_probability || 0) * 100)}%
                     </div>
                 </div>
             </a>
