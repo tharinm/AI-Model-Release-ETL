@@ -2,8 +2,8 @@ name: Automated AI Model Release ETL & Popularity Prediction Pipeline
 
 on:
   schedule:
-    # Run twice daily at 00:00 UTC and 12:00 UTC
-    - cron: '0 0,12 * * *'
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
   workflow_dispatch:
     # Allows manual execution from GitHub Actions tab
 
@@ -41,8 +41,8 @@ jobs:
 
       - name: Commit & Push Updated Dataset
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "tharinm"
+          git config --global user.email "tharindumadhushan864@gmail.com"
           git add data/processed/
           
           # Check if there are changes to commit
@@ -50,5 +50,5 @@ jobs:
             echo "No changes detected in model datasets."
           else
             git commit -m "chore(etl): daily automated AI model dataset update [skip ci]"
-            git push
+            git push origin HEAD:main
           fi

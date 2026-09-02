@@ -270,12 +270,27 @@ body {
 }
 
 .top-models-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    overflow-x: auto;
     gap: var(--space-4);
+    padding-bottom: var(--space-3);
+    /* Hide scrollbar for cleaner look but keep functionality */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border-card) transparent;
+}
+
+.top-models-grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.top-models-grid::-webkit-scrollbar-thumb {
+    background-color: var(--color-border-card);
+    border-radius: 4px;
 }
 
 .top-model-card {
+    flex: 0 0 calc(20% - var(--space-4));
+    min-width: 220px;
     background: linear-gradient(145deg, #ffffff, #f8fafc);
     border: 1px solid var(--color-border-card);
     border-radius: var(--radius-xs);
@@ -294,7 +309,14 @@ body {
 .top-model-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
-    border-color: var(--color-accent-purple);
+    border-color: var(--color-accent-cyan);
+    outline: 2px solid var(--color-accent-cyan);
+    outline-offset: -1px;
+}
+
+.highlight-top-1 {
+    border: 2px solid var(--color-accent-cyan) !important;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.15);
 }
 
 .tmc-rank {

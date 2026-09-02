@@ -30,7 +30,7 @@ def run_pipeline(limit: int = 500, use_mock: bool = False, train: bool = True):
         raw_data = extractor.fetch_sample_models(count=limit)
     else:
         try:
-            raw_data = extractor.fetch_recent_models(limit=limit)
+            raw_data = extractor.fetch_top_models(limit=limit)
         except Exception as e:
             logger.warning(f"Failed to fetch live API data ({e}). Falling back to sample model generator.")
             raw_data = extractor.fetch_sample_models(count=limit)

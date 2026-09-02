@@ -21,13 +21,13 @@ class HuggingFaceExtractor:
         self.token = token or os.getenv("HF_TOKEN")
         self.headers = {"Authorization": f"Bearer {self.token}"} if self.token else {}
 
-    def fetch_recent_models(self, limit: int = DEFAULT_FETCH_LIMIT, sort_by: str = "createdAt") -> List[Dict[str, Any]]:
+    def fetch_top_models(self, limit: int = DEFAULT_FETCH_LIMIT, sort_by: str = "downloads") -> List[Dict[str, Any]]:
         """
-        Fetches recently created/modified models from Hugging Face.
+        Fetches top models from Hugging Face based on downloads.
         
         Args:
             limit (int): Number of models to retrieve (default: 500)
-            sort_by (str): Property to sort by ('createdAt' or 'lastModified')
+            sort_by (str): Property to sort by ('downloads', 'createdAt', etc)
             
         Returns:
             List[Dict[str, Any]]: List of raw model metadata objects
